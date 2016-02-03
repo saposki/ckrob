@@ -1,20 +1,8 @@
 # Ckrob
->   Manage artifacts, monitor trends, make intelligent inferences, propose course of action, reallocate resources.
-
-<!-- # how -->
-
-<!-- # artifacts -->
-
-<!-- # visualization -->
-
-<!-- # independent deployment --> -->
+   Manage artifacts, monitor trends, make intelligent inferences, propose course of action, reallocate resources.
 
 
 ## Team
-
-  - __Product Owner__: saposki   
-  - __Scrum Master__: saposki
-  - __Development Team Members__: saposki
 
 ## Table of Contents
 
@@ -40,8 +28,6 @@
 ## Development
 
 ### Installing Dependencies
-
-From within the root directory:
 
 
 ### Roadmap
