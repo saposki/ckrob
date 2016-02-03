@@ -1,18 +1,14 @@
 # Ckrob
 >   Manage artifacts, monitor trends, make intelligent inferences, propose course of action, reallocate resources.
-<!-- # how
 
-# artifacts
+<!-- # how -->
 
-# visualization
+<!-- # artifacts -->
 
-# independent deployment -->
+<!-- # visualization -->
 
+<!-- # independent deployment --> -->
 
-
-# Project Name
-
-> Pithy project description
 
 ## Team
 
