@@ -1,8 +1,8 @@
 # Create your views here.
-import mongoengine
 from ckrobDashBoard.models import Artifact, Container
 from django.http import HttpResponse
 
+import mongoengine
 user = authenticate(username=username, password=password)
 assert isintance(user, mongoengine.django.auth.User)
 

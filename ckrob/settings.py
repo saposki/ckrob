@@ -1,3 +1,4 @@
+import mongoengine
 # Django settings for ckrob project.
 
 DEBUG = True
@@ -8,6 +9,16 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+# MONGODB_DATABASES = {
+#     "default": {
+#         "name": database_name,
+#         "host": database_host,
+#         "password": database_password,
+#         "username": database_user,
+#         "tz_aware": True, # if you using timezones in django (USE_TZ = True)
+#     },
+# }
 
 DATABASES = {
     'default': {
@@ -23,6 +34,8 @@ DATABASES = {
 }
 
 SESSION_ENGINE = 'mongoengine.django.sessions' #optional
+SESSION_SERIALIZER = 'django_mongoengine.sessions.BSONSerializer'
+
 _MONGODB_USER = 'mongouser'
 _MONGODB_PASSWD = 'password'
 _MONGODB_HOST = 'thehost'
@@ -141,7 +154,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'ckrobDashBoard'
+    'ckrobDashBoard',
+    'django_mongoengine'
 )
 
 # A sample logging configuration. The only tangible logging
