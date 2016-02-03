@@ -1,5 +1,6 @@
-import mongoengine
 # Django settings for ckrob project.
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -10,21 +11,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# MONGODB_DATABASES = {
-#     "default": {
-#         "name": database_name,
-#         "host": database_host,
-#         "password": database_password,
-#         "username": database_user,
-#         "tz_aware": True, # if you using timezones in django (USE_TZ = True)
-#     },
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': '',
-        # 'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        # 'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/Users/orobosa/myDjango/ckrob/ckrob.db', # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         # 'USER': '',
         # 'PASSWORD': '',
@@ -32,23 +22,6 @@ DATABASES = {
         # 'PORT': '',                      # Set to empty string for default.
     },
 }
-
-SESSION_ENGINE = 'mongoengine.django.sessions' #optional
-SESSION_SERIALIZER = 'django_mongoengine.sessions.BSONSerializer'
-
-_MONGODB_USER = 'mongouser'
-_MONGODB_PASSWD = 'password'
-_MONGODB_HOST = 'thehost'
-_MONGODB_NAME = 'thedb'
-_MONGODB_DATABASE_HOST = \
-    'mongodb://%s:%s@%s/%s' \
-    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-
-mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
-
-AUTHENTICATION_BACKENDS = (
-    'mongoengine.django.auth.MongoEngineBackend',
-)
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -155,7 +128,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'ckrobDashBoard',
-    'django_mongoengine'
 )
 
 # A sample logging configuration. The only tangible logging
