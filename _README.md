@@ -16,7 +16,7 @@
 
 ## Usage
 
-> Some usage instructions
+ Some usage instructions
 
 ## Requirements
 
