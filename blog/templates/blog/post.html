@@ -1,12 +1,17 @@
-<!-- <html> -->
+<html>
+<div>
    <h1>Blog</h1>
    <h2>Blog</h2>
+</div>
+
+
    {% for post in posts %}
-      <!-- <div> -->
-            <!-- <p>publishded: {{post.published_date}}</p> -->
-            <!-- <h1><a href="">{{ post.title }}</a></h1> -->
-            {{ posts }}
-            <!-- <p>{{ post.text | linebreaks }}</p> -->
-      <!-- </div> -->
+      <div>
+            <p>publishded: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+
+
+            <p>{{ post.text | linebreaks }}</p>
+      </div>
    {% endfor %}
-<!-- </html> -->
+</html>
