@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from blog import views
+# from ckrobDashBoard import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^dash', include('ckrobDashBoard/urls.py')),
-    # url(r'^home/$', 'ckrobDashBoard.views.homePageView'),
+    # url(r'^$', views.home, name='home'), #default home url
+    url(r'^$', views.indexPage, name='indexPage'),
     url(r'^dashboard/$', 'ckrobDashBoard.views.dashBoardView'),
+    url(r'^dash/$', views.dashBoard, name='dahsBoard'),
     url(r'^blog/$', 'blog.views.postList')
 ]

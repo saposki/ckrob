@@ -4,4 +4,4 @@ from .models import Post
 
 
 def home(request):
-    return render(request, 'admin/base.html', {})
+    return render(request, 'admin/base.html')
