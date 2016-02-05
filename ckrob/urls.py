@@ -19,8 +19,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^$', 'ckrobDashBoard.views.homePageView'),
+    url(r'^$', 'ckrobDashBoard.views.homePageView'),
     # url(r'^home/$', 'ckrobDashBoard.views.homePageView'),
-    # url(r'^dashboard/$', 'ckrobDashBoard.views.dashBoardView'),
-    url(r'^blog/$', 'blog.views.blogView'),
+    url(r'^dashboard/$', 'ckrobDashBoard.views.dashBoardView'),
+    url(r'^blog/$', 'blog.views.postList')
 ]
