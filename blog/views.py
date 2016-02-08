@@ -16,3 +16,5 @@ def indexPage(request):
     return render(request, 'home/index.html')
 def dashBoard(request):
     return render(request, 'dash/dash.html')
+def upLoadFile(request):
+    return render(request, 'forms/upload.html')
