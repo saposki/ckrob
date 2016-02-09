@@ -2,5 +2,4 @@ from django import forms
 from blog.models import Upload
 
 class UploadForm(forms.ModelForm):
-    class Meta:
-        model = Upload
+    dataSet = forms.FileField(label='Select a .csv file')

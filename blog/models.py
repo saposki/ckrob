@@ -24,4 +24,4 @@ class Post(models.Model):
         return self.title
 
 class Upload(models.Model):
-    file = models.FileField(upload_to='images')
+    dataSet = models.FileField(upload_to='profile/%Y/%m/%d')
