@@ -23,5 +23,5 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-class Upload(models.Model):
+class UploadFile(models.Model):
     dataSet = models.FileField(upload_to='profile/%Y/%m/%d')

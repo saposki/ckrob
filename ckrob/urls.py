@@ -15,15 +15,22 @@ Including another URLconf
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
+from django.conf.urls.static import static
+from django.conf import settings
+
+from blog.views import UploadFileView, ListView, UploadFileIndexView, FileDetailView
+
 from django.contrib import admin
 from blog import views
 # from ckrobDashBoard import views
 
-urlpatterns = [
+urlpatterns = ([
     url(r'^admin/', admin.site.urls),
     # url(r'^$', views.home, name='home'), #default home url
     url(r'^$', views.indexPage, name='indexPage'),
     url(r'^dashboard/$', 'ckrobDashBoard.views.dashBoardView'),
-    url(r'^dash/$', views.dashBoard, name='dahsBoard'),
-    url(r'^blog/$', 'blog.views.postList')
-]
+    url(r'^dash/$', views.dashBoard, name='dashBoard'),
+    url(r'^blog/$', 'blog.views.postList'),
+    url(r'^upload/$', UploadFileView.as_view(), name='upLoad'),
+    url(r'^uploaded/(?P<pk>\d+)/$', FileDetailView.as_view(), name='uploadFile')
+]) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

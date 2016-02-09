@@ -1,6 +1,14 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.views.generic import FormView, DetailView, ListView
 from django.utils import timezone
-from .models import Post
+
+from .models import Post, UploadFile
+from .forms import UploadForm
+
+
+
 # from django.http import HttpResponse
 
 
@@ -18,3 +26,28 @@ def dashBoard(request):
     return render(request, 'dash/dash.html')
 def upLoadFile(request):
     return render(request, 'forms/upload.html')
+
+class UploadFileView(FormView):
+    templateName = 'forms/upload.html'
+    formClass = UploadForm
+
+    def formValid(self, form):
+        dataSetEntry = UploadFile(
+            dataSet=self.get_from_kwargs().get('files')['dataSet'])
+        dataSet.save()
+        self.id = dataSet.id
+
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('dataSet', kwargs={'pk':self.id})
+
+class FileDetailView(DetailView):
+    model = UploadFile
+    templateName = 'dash/detail.html'
+    contextObjectName = 'file'
+
+class UploadFileIndexView(ListView):
+    model = UploadFile
+    templateName = 'dash/uploaded.html'
+    contextObjectName = 'files'
