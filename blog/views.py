@@ -24,30 +24,15 @@ def indexPage(request):
     return render(request, 'home/index.html')
 def dashBoard(request):
     return render(request, 'dash/dash.html')
-def upLoadFile(request):
-    return render(request, 'forms/upload.html')
+def uploadCsv(request):
+    form = UploadForm()
+    context = {
+        "form": form,
+    }
+    return render(request, 'forms/upload.html', context)
+    # if request.method == 'POST':
+        # form = UploadForm(request.POST, request.FILES)
 
-class UploadFileView(FormView):
-    templateName = 'forms/upload.html'
-    formClass = UploadForm
-
-    def formValid(self, form):
-        dataSetEntry = UploadFile(
-            dataSet=self.get_from_kwargs().get('files')['dataSet'])
-        dataSet.save()
-        self.id = dataSet.id
-
-        return HttpResponseRedirect(self.get_success_url())
-
-    def get_success_url(self):
-        return reverse('dataSet', kwargs={'pk':self.id})
-
-class FileDetailView(DetailView):
-    model = UploadFile
-    templateName = 'dash/detail.html'
-    contextObjectName = 'file'
-
-class UploadFileIndexView(ListView):
-    model = UploadFile
-    templateName = 'dash/uploaded.html'
-    contextObjectName = 'files'
+    # else:
+        # form = UploadForm()
+    # return render_to_reponse('upload.html', {'form': form})

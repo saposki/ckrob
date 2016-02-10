@@ -1,7 +1,8 @@
 <html>
    <h1>UPLOAD</h1>
-   <form action="{% url "upLoad" %}" method="post" enctype="multipart/form-data">
 
-   </form>
-
+      <form enctype="multipart/form-data" method="post" action=".">
+         {{ form.as_p}}
+         <input type="submit" value="upload">
+      </form>
 </html>

@@ -18,7 +18,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.conf import settings
 
-from blog.views import UploadFileView, ListView, UploadFileIndexView, FileDetailView
+# from blog.views import UploadFileView, ListView, UploadFileIndexView, FileDetailView
 
 from django.contrib import admin
 from blog import views
@@ -31,6 +31,5 @@ urlpatterns = ([
     url(r'^dashboard/$', 'ckrobDashBoard.views.dashBoardView'),
     url(r'^dash/$', views.dashBoard, name='dashBoard'),
     url(r'^blog/$', 'blog.views.postList'),
-    url(r'^upload/$', UploadFileView.as_view(), name='upLoad'),
-    url(r'^uploaded/(?P<pk>\d+)/$', FileDetailView.as_view(), name='uploadFile')
+    url(r'^upload/$', views.uploadCsv, name='uploadCsv'),
 ]) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
