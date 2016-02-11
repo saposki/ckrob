@@ -1,20 +1,23 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from time import time
+# from django.utils import timezone
+from django.core.urlresolvers import reverse
 
-from django.utils import timezone
 # Create your models here.
-
+#
+# def getUploadedFileName(instance, fileName):
+#     return 'uploadedFiles/%s_%s/' %(str(time()).replace('.','.'), fileName)
 
 
 class Post(models.Model):
-    author = models.ForeignKey('auth.User')
+    # author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    image = models.FileField(null=True, blank=True)
     text = models.TextField()
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+    created_date = models.DateTimeField(auto_now=True, auto_now_add=False)
+    published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -24,4 +27,12 @@ class Post(models.Model):
         return self.title
 
 class UploadFile(models.Model):
-    dataSet = models.FileField(upload_to='profile/%Y/%m/%d')
+    title = models.CharField(max_length=200)
+    file = models.FileField(null=True, blank=True)
+
+    # def publish(self):
+    #     self.published_date = timezone.now()
+    #     self.save()
+
+    def __str__(self):
+        return self.title
